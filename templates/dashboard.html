@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - CFAKE</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">🤖</span>
+      <span class="brand-text">CFAKE<span class="brand-accent">AI</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/dashboard" class="active">Dashboard</a></li>
+      <li><a href="/predict">Predict</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>Analytics <span class="gradient-text">Dashboard</span></h1>
+    <p>Performance metrics for all trained models on the CFAKE test set</p>
+  </div>
+
+  <!-- BEST MODEL BANNER -->
+  <div class="container">
+    <div class="best-banner" id="best-banner">
+      <div class="best-crown">🏆</div>
+      <div>
+        <div class="best-label">Best Performing Model</div>
+        <div class="best-name" id="best-name">Loading...</div>
+      </div>
+      <div class="best-metrics" id="best-metrics"></div>
+    </div>
+  </div>
+
+  <!-- METRIC CARDS -->
+  <div class="container">
+    <div class="section-header">
+      <h2>Model Scores</h2>
+    </div>
+    <div id="metric-cards" class="metrics-grid"></div>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="container">
+    <div class="section-header"><h2>Charts & Visuals</h2></div>
+    <div class="charts-grid">
+      <div class="chart-box full">
+        <h3>📊 Metrics Comparison (All Models)</h3>
+        <img src="/static/charts/metrics_comparison.png" alt="Metrics Comparison" class="chart-img"/>
+      </div>
+      <div class="chart-box full">
+        <h3>🗂️ Confusion Matrices</h3>
+        <img src="/static/charts/confusion_matrices.png" alt="Confusion Matrices" class="chart-img"/>
+      </div>
+      <div class="chart-box half">
+        <h3>🕸️ Radar Chart</h3>
+        <img src="/static/charts/radar_chart.png" alt="Radar Chart" class="chart-img"/>
+      </div>
+      <div class="chart-box half">
+        <h3>⏱️ Training Time</h3>
+        <img src="/static/charts/training_time.png" alt="Training Time" class="chart-img"/>
+      </div>
+      <div class="chart-box full">
+        <h3>📉 PCA Explained Variance</h3>
+        <img src="/static/charts/pca_variance.png" alt="PCA Variance" class="chart-img"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILED TABLE -->
+  <div class="container">
+    <div class="section-header"><h2>Detailed Results Table</h2></div>
+    <div class="table-wrap">
+      <table class="results-table" id="results-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Accuracy (%)</th>
+            <th>Precision (%)</th>
+            <th>Recall (%)</th>
+            <th>F1 Score (%)</th>
+            <th>AUC (%)</th>
+            <th>Train Time (s)</th>
+          </tr>
+        </thead>
+        <tbody id="results-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>CFAKE Project • Dataset by Bird &amp; Lotfi (2023) • Built with Flask + Scikit-learn</p>
+  </footer>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

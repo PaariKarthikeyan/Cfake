@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Predict - CFAKE</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">🤖</span>
+      <span class="brand-text">CFAKE<span class="brand-accent">AI</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/predict" class="active">Predict</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>Image <span class="gradient-text">Prediction</span></h1>
+    <p>Upload a 32×32 image to classify it as REAL or AI-Generated</p>
+  </div>
+
+  <div class="container">
+    <div class="predict-layout">
+      <!-- Upload Card -->
+      <div class="upload-card">
+        <h2>Upload Image</h2>
+        <div class="drop-zone" id="drop-zone">
+          <div class="drop-icon">📁</div>
+          <p>Drag & drop an image here</p>
+          <p class="drop-sub">or click to browse</p>
+          <input type="file" id="file-input" accept="image/*" hidden/>
+        </div>
+        <div class="preview-wrap" id="preview-wrap" style="display:none">
+          <img id="preview-img" src="" alt="Preview"/>
+          <button class="btn btn-outline btn-sm" id="clear-btn">✕ Clear</button>
+        </div>
+        <button class="btn btn-primary btn-full" id="predict-btn" disabled>
+          🔍 Analyze Image
+        </button>
+      </div>
+
+      <!-- Results Card -->
+      <div class="results-card" id="results-card">
+        <div class="results-placeholder" id="results-placeholder">
+          <div class="placeholder-icon">🔬</div>
+          <p>Upload an image and click Analyze to see predictions from all 3 models.</p>
+        </div>
+        <div id="results-content" style="display:none">
+          <h2>Prediction Results</h2>
+          <div class="best-result" id="best-result"></div>
+          <div class="all-predictions" id="all-predictions"></div>
+        </div>
+        <div class="loader" id="loader" style="display:none">
+          <div class="spinner"></div>
+          <p>Analyzing image...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="tips-box">
+      <h3>💡 Tips</h3>
+      <ul>
+        <li>Images are resized to 32×32 pixels internally — any size works</li>
+        <li>AI-generated images often have texture artifacts and unnatural backgrounds</li>
+        <li>The <strong>Random Forest</strong> model generally has the best accuracy on this dataset</li>
+        <li>Use the Dashboard to compare all model metrics before trusting a single prediction</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>CFAKE Project • Dataset by Bird &amp; Lotfi (2023) • Built with Flask + Scikit-learn</p>
+  </footer>
+
+  <script src="/static/js/predict.js"></script>
+</body>
+</html>

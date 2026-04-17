@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CFAKE Detector</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">🤖</span>
+      <span class="brand-text">CFAKE<span class="brand-accent">AI</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/predict">Predict</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🔬 Machine Learning Research</div>
+      <h1 class="hero-title">
+        Detect <span class="gradient-text">AI-Generated</span><br/>Images with ML
+      </h1>
+      <p class="hero-subtitle">
+        Trained on 120,000 images from the CFAKE dataset — comparing
+        <strong>Logistic Regression</strong>, <strong>Random Forest</strong>,
+        and <strong>Decision Tree</strong> to identify synthetic images.
+      </p>
+      <div class="hero-cta">
+        <a href="/predict" class="btn btn-primary">Try Prediction →</a>
+        <a href="/dashboard" class="btn btn-outline">View Dashboard</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="visual-card real">
+        <div class="card-label">REAL</div>
+        <div class="pixel-grid real-grid"></div>
+      </div>
+      <div class="visual-vs">VS</div>
+      <div class="visual-card fake">
+        <div class="card-label">FAKE</div>
+        <div class="pixel-grid fake-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section class="stats-strip">
+    <div class="stat-item">
+      <span class="stat-num">120K</span>
+      <span class="stat-label">Total Images</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">ML Models</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">32×32</span>
+      <span class="stat-label">Image Size</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Binary</span>
+      <span class="stat-label">Classification</span>
+    </div>
+  </section>
+
+  <!-- MODELS SECTION -->
+  <section class="models-section">
+    <div class="section-header">
+      <h2>Models Used</h2>
+      <p>Three classical ML algorithms trained on PCA-reduced pixel features</p>
+    </div>
+    <div class="models-grid">
+      <div class="model-card">
+        <div class="model-icon" style="background:#6366f1">📈</div>
+        <h3>Logistic Regression</h3>
+        <p>Fast linear classifier. Uses PCA features to find a decision hyperplane between real and fake images.</p>
+        <div class="model-tag">Linear</div>
+      </div>
+      <div class="model-card">
+        <div class="model-icon" style="background:#f59e0b">🌲</div>
+        <h3>Decision Tree</h3>
+        <p>Interpretable tree-based model. Recursively splits the feature space to classify images.</p>
+        <div class="model-tag">Tree-based</div>
+      </div>
+      <div class="model-card">
+        <div class="model-icon" style="background:#10b981">🌳</div>
+        <h3>Random Forest</h3>
+        <p>Ensemble of 200 decision trees. Reduces overfitting via bagging and feature randomness.</p>
+        <div class="model-tag">Ensemble</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE SECTION -->
+  <section class="pipeline-section">
+    <div class="section-header">
+      <h2>ML Pipeline</h2>
+      <p>How raw images become predictions</p>
+    </div>
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="pipe-num">1</div>
+        <div class="pipe-text"><strong>Load Images</strong><br/>32×32 RGB → flatten to 3072 features</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-num">2</div>
+        <div class="pipe-text"><strong>Normalize</strong><br/>StandardScaler (zero mean, unit variance)</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-num">3</div>
+        <div class="pipe-text"><strong>PCA</strong><br/>3072 → 150 principal components</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-num">4</div>
+        <div class="pipe-text"><strong>Train & Evaluate</strong><br/>Accuracy, F1, AUC, Confusion Matrix</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>CFAKE Project • Dataset by Bird &amp; Lotfi (2023) • Built with Flask + Scikit-learn</p>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
